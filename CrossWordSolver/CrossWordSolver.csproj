@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BruteSolver.cs" />
+    <Compile Include="Letter.cs" />
     <Compile Include="Puzzle.cs" />
     <Compile Include="PuzzlePiece.cs" />
     <Compile Include="SolverForm.cs">
@@ -57,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadWordsFromFiles.cs" />
     <Compile Include="IReadWordsInterface.cs" />
+    <Compile Include="Word.cs" />
     <Compile Include="Words.cs" />
     <EmbeddedResource Include="SolverForm.resx">
       <DependentUpon>SolverForm.cs</DependentUpon>

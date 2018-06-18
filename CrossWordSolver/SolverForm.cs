@@ -13,6 +13,8 @@ namespace CrossWordSolver
     public partial class SolverForm : Form
     {
         private const int pieceSize = 30;
+        //TODO remove temp var.
+        private List<Word> tempWords;
 
         public SolverForm()
         {
@@ -36,43 +38,56 @@ namespace CrossWordSolver
             {
                 for (int y = 0; y < allPieces.GetLength(1); y++)
                 {
-                    DrawPiece(allPieces[x, y], x, y);
+                    DrawPiece(puzzle, x, y);
                 }
                
             }
+            tempWords = puzzle.FindWords();
             
         }
 
-        private void DrawPiece(PuzzlePiece piece, int x, int y)
-        {            
+        private void DrawPiece(Puzzle puzzle, int x, int y)
+        {
+            var piece = puzzle.GetPieces()[x, y];
+
             Label pieceLabel = new Label();
             pieceLabel.Text = piece.GetLetter().ToString();
             pieceLabel.Bounds = new Rectangle(x * pieceSize, y * pieceSize, pieceSize, pieceSize);
             pieceLabel.ForeColor = Color.White;
 
-            if (!piece.CanBeFilled())
+            if(x == 5 && y == 3)
+            {
+                pieceLabel.BackColor = Color.OldLace;
+            }
+
+            if (!piece.open)
             {
                 pieceLabel.BackColor = Color.Black;
-                
             }
-            else if (piece.openRight && piece.openDown)
+            else if ((puzzle.IsRightPieceOpen(x, y) || puzzle.IsLeftPieceOpen(x, y)) && (puzzle.IsBottomPieceOpen(x, y) || puzzle.IsTopPieceOpen(x, y)))
             {
                 pieceLabel.BackColor = Color.Purple;
             }
-            else if(piece.openRight && !piece.openDown)
+            else if(puzzle.IsRightPieceOpen(x,y) || puzzle.IsLeftPieceOpen(x, y))
             {
                 pieceLabel.BackColor = Color.Green;
             }
-            else if(!piece.openRight && piece.openDown)
+            else if (puzzle.IsBottomPieceOpen(x, y) || puzzle.IsTopPieceOpen(x, y))
             {
                 pieceLabel.BackColor = Color.Blue;
             }
+            else
+            {
+                pieceLabel.BackColor = Color.White;
+                pieceLabel.ForeColor = Color.Black;
+            }
            
-            pieceLabel.ForeColor = Color.White;
-                
-            
-
             puzzlePanel.Controls.Add(pieceLabel);
+        }
+
+        private void showWordsButton_Click(object sender, EventArgs e)
+        {
+              var test = 1;
         }
     }
 }

@@ -8,31 +8,15 @@ namespace CrossWordSolver
 {
     public class PuzzlePiece
     {
-        public static char defaultLetter = '#';
-
-        public bool openRight = false;
-        public bool openDown = false;
+        public static char defaultLetter = '#';               
         public bool open = false;
+
         private char letter;
 
-        public PuzzlePiece()
+        public PuzzlePiece(bool open)
         {
-
-        }
-
-
-        public PuzzlePiece(bool openRight, bool openDown)
-        {
-            this.openDown = openDown;
-            this.openRight = openRight;
+            this.open = open;
             this.letter = PuzzlePiece.defaultLetter;
-        }
-
-        public PuzzlePiece(bool openRight, bool openDown, char letter)
-        {
-            this.openDown = openDown;
-            this.openRight = openRight;
-            this.letter = letter;
         }
 
         public char GetLetter()
@@ -40,9 +24,5 @@ namespace CrossWordSolver
             return letter;
         }
 
-        public bool CanBeFilled()
-        {
-            return openDown || openRight;
-        }
     }
 }
