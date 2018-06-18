@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CrossWordSolver
 {
-    public partial class Form1 : Form
+    public partial class SolverForm : Form
     {
-        public Form1()
+        public SolverForm()
         {
             InitializeComponent();
+        }
+
+        public void SetWordsLoadedCount(int count)
+        {
+            wordsLoadedCountLabel.Text = count.ToString();
         }
     }
 }

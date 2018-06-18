@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CrossWordSolver
 {
-    internal class Words
+    public class Words
     {
         private List<List<string>> wordLists = new List<List<string>>();
 
@@ -22,14 +22,33 @@ namespace CrossWordSolver
         /// <returns></returns>
         public List<string> GetWords(int length)
         {            
-            return wordLists[length - 1];
+            return wordLists[length];
         }
 
         public void SetWords(int length, List<string> words)
         {
-            wordLists.Insert(length - 1, words);
+            if(wordLists.Count <= length)
+            { 
+                wordLists.Add(words);
+            }
+            else
+            {
+                words.AddRange(wordLists[length]);
+
+                wordLists[length] = words;
+            }
         }
 
+        public int CountWords()
+        {
+            int total = 0;
+            foreach (var wordList in wordLists)
+            {
+                total += wordList.Count;
+            }
+
+            return total;
+        }
 
     }
 }

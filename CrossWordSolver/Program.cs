@@ -14,12 +14,15 @@ namespace CrossWordSolver
         [STAThread]
         static void Main()
         {
+            var words = new ReadWordsFromFiles().InitWords("NL");
+           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
 
-            //TEST
+            var SolveForm = new SolverForm();
+            SolveForm.SetWordsLoadedCount(words.CountWords());
 
+            Application.Run(SolveForm);
         }
     }
 }

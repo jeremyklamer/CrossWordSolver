@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CrossWordSolver
 {
-    interface ReadWordsInterface
+    public interface IReadWordsInterface
     {
-        Words InitWordsFromFiles(List<string> filePaths);        
+        Words InitWords(string languageCode);        
     }
 }
