@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Puzzle.cs" />
+    <Compile Include="PuzzlePiece.cs" />
     <Compile Include="SolverForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,10 +90,6 @@
     <None Include="Words\NL\NLOpenTaal-210G-flexievormen.txt" />
     <None Include="Words\NL\NLOpenTaal-210G-basis-ongekeurd.txt" />
     <None Include="Words\NL\NLOpenTaal-210G-basis-gekeurd.txt" />
-    <Content Include="Words\NL\OpenTaal-210G-basis-gekeurd.txt" />
-    <Content Include="Words\NL\OpenTaal-210G-basis-ongekeurd.txt" />
-    <Content Include="Words\NL\OpenTaal-210G-flexievormen.txt" />
-    <Content Include="Words\NL\OpenTaal-210G-verwarrend.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
